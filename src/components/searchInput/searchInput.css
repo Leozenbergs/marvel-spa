@@ -1,0 +1,12 @@
+.searchInput {
+  padding: 10px 15px;
+  border-radius: 20px;
+  width: 45vw;
+  border: none;
+  background: #fdecec;
+}
+
+.searchInput::placeholder {
+  color: #fa7c7c;
+  font-size: 15px;
+}

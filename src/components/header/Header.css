@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+
+header {
+  margin-top: 25px;
+  color: #333;
+  text-transform: uppercase;
+  font-family: 'Hind', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+span.small {
+  color: rgb(117, 117, 117);
+  text-transform: none;
+}

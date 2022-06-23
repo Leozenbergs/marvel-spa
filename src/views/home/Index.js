@@ -1,11 +1,14 @@
+import { Container } from '../../components/container/Index'
+import Header from '../../components/header/Index'
+
 import './Home.css';
 
 function Home() {
   return (
     <div className="Home">
-      <header className="Home-header">
-        Teste
-      </header>
+      <Container>
+        <Header/>
+      </Container>
     </div>
   );
 }
