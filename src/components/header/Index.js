@@ -3,7 +3,7 @@ import SearchInput from '../searchInput/Index'
 import '../../index.css'
 import './Header.css'
 
-export default function Headers() {
+export default function Header() {
   return (
     <header className="text-center">
       <div className="flex justify-center align-center">
