@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from 'react'
 
 import Loader from '../loader/Index'
@@ -8,9 +9,11 @@ import api from '../../services/api'
 const HEROES_LIMIT = 20
 
 
-function Hero({ name, thumbnail }) {
+function Hero({ name, thumbnail, id }) {
+  let navigate = useNavigate()
+
   return (
-    <div className="hero pointer">
+    <div className="hero pointer" onClick={() => navigate(`${id}`)}>
       <img src={`${thumbnail.path}/standard_xlarge.jpg`} alt={name} className="hero-thumb" />
       <b className="flex space-between align-start">{name} <img src={'icons/favorito_02.svg'} alt='favorite' /></b>
     </div>
@@ -45,7 +48,7 @@ export default function Heroes() {
     <div className="flex flex-wrap justify-center">
       <Loader visible={loading} />
       {heroes.map((hero, index) => 
-        <Hero name={hero.name} thumbnail={hero.thumbnail}  key={index} />
+        <Hero name={hero.name} thumbnail={hero.thumbnail} id={hero.id} key={index} />
       )}
     </div>
   )
