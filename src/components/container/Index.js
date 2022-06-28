@@ -10,7 +10,7 @@ const ContainerFluid = (props) => {
 
 const Container = (props) => {
   return (
-    <div className='container'>
+    <div className='container' {...props}>
       { props.children }
     </div>
   )

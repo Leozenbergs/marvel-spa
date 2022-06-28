@@ -4,13 +4,14 @@
   width: 45vw;
   border: none;
   background: #fdecec;
+  margin-left: -35px;
 }
 .icon {
   position: relative;
   padding-left: 25px;
   background-size: 20px;
   top: 5px;
-  right: -30px;
+  right: 0px;
 }
 
 .searchInput::placeholder {
