@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif, arial, helvetica;
+}
+
 .flex {
   display: flex;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .flex-wrap {
@@ -8,6 +18,14 @@
 
 .justify-center {
   justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-start {
+  align-items: flex-start;
 }
 
 .align-center {
