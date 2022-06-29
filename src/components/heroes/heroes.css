@@ -1,7 +1,7 @@
 @import url('../../index.css');
 
 .hero {
-  margin: 2.6rem;
+  margin: 1.6rem 0px;
   font-size: 12px;
   color: #333
 }
@@ -11,4 +11,12 @@
   min-width: 200px;
   background: #ccc;
   border-bottom: 3px solid rgb(255, 0, 0);
+}
+
+.heroes-header {
+  color: #aaa;
+}
+
+.ordenate {
+  color: #f00;
 }

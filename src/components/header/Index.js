@@ -22,7 +22,7 @@ export default function Header(props) {
           Mergulhe no domínio deslumbrante de todos os personagens clássicos que você ama - e aqueles que você descobrirá em breve!
         </span>
       </div>
-      <SearchInput setResults={setResults} />
+      <SearchInput setResults={(value) => setResults(value)} />
     </header>
   )
 }
