@@ -14,14 +14,21 @@ function Hero({ name, thumbnail, id }) {
 
   return (
     <div className="hero pointer" onClick={() => navigate(`${id}`)}>
-      <img src={`${thumbnail.path}/standard_xlarge.jpg`} alt={name} className="hero-thumb" />
-      <b className="flex space-between align-start">{name} <img src={'icons/favorito_02.svg'} alt='favorite' /></b>
+      <img
+        src={`${thumbnail.path}/standard_xlarge.jpg`}
+        alt={name}
+        className="hero-thumb"
+      />
+      <b className="flex space-between align-start">
+        {name}
+        <img src={'icons/favorito_02.svg'} alt='favorite' />
+      </b>
     </div>
   )
 }
 
 
-export default function Heroes(props) {
+function Heroes(props) {
   const [loading, setLoading] = useState(true)
 
   async function fetchHeroes() {
@@ -35,16 +42,16 @@ export default function Heroes(props) {
       setLoading(false)
     } catch (err) {
       setLoading(false)
-      alert(err)
+      console.table(err)
     }
   }
-  
+
   useEffect(() => {
     fetchHeroes()
   }, [])
 
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-wrap space-between">
       <Loader visible={loading} />
       {!!props.heroes && props.heroes.map((hero, index) => 
         <Hero name={hero.name} thumbnail={hero.thumbnail} id={hero.id} key={index} />
@@ -52,3 +59,4 @@ export default function Heroes(props) {
     </div>
   )
 }
+export default Heroes;
