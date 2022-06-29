@@ -21,8 +21,7 @@ function Hero({ name, thumbnail, id }) {
 }
 
 
-export default function Heroes() {
-  const [heroes, setHeroes] = useState([])
+export default function Heroes(props) {
   const [loading, setLoading] = useState(true)
 
   async function fetchHeroes() {
@@ -32,7 +31,7 @@ export default function Heroes() {
           limit: HEROES_LIMIT
         }
       })
-      setHeroes(data.data.results)
+      props.setHeroes(data.data.results)
       setLoading(false)
     } catch (err) {
       setLoading(false)
@@ -47,7 +46,7 @@ export default function Heroes() {
   return (
     <div className="flex flex-wrap justify-center">
       <Loader visible={loading} />
-      {heroes.map((hero, index) => 
+      {!!props.heroes && props.heroes.map((hero, index) => 
         <Hero name={hero.name} thumbnail={hero.thumbnail} id={hero.id} key={index} />
       )}
     </div>
