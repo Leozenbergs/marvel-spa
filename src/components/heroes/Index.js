@@ -27,12 +27,11 @@ function Hero(props) {
         alt={props.name}
         className="hero-thumb"
         />
-      <b className="flex space-between align-start">
+      <b className="flex space-between align-start" onClick={(e) => props.toggleFavorite(e, props.id)}>
         {props.name}
         <img
           src={buildUrl()}
           alt='favorite'
-          onClick={(e) => props.toggleFavorite(e, props.id)}
           />
       </b>
     </div>
