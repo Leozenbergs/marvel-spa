@@ -1,3 +1,5 @@
+import { clone } from 'lodash';
+
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from 'react'
 
@@ -7,21 +9,31 @@ import './heroes.css'
 import api from '../../services/api'
 
 const HEROES_LIMIT = 20
+const FAVORITES = JSON.parse(localStorage.getItem('favorites')) || {}
 
-
-function Hero({ name, thumbnail, id }) {
+function Hero(props) {
   let navigate = useNavigate()
-
+  
+  function buildUrl() {
+    return props.favorite ?
+    'icons/favorito_03.svg'
+    : 'icons/favorito_02.svg'
+  }
+  
   return (
-    <div className="hero pointer" onClick={() => navigate(`${id}`)}>
+    <div className="hero pointer" onClick={() => navigate(`${props.id}`)}>
       <img
-        src={`${thumbnail.path}/standard_xlarge.jpg`}
-        alt={name}
+        src={`${props.thumbnail.path}/standard_xlarge.jpg`}
+        alt={props.name}
         className="hero-thumb"
-      />
+        />
       <b className="flex space-between align-start">
-        {name}
-        <img src={'icons/favorito_02.svg'} alt='favorite' />
+        {props.name}
+        <img
+          src={buildUrl()}
+          alt='favorite'
+          onClick={(e) => props.toggleFavorite(e, props.id)}
+          />
       </b>
     </div>
   )
@@ -30,7 +42,16 @@ function Hero({ name, thumbnail, id }) {
 
 function Heroes(props) {
   const [loading, setLoading] = useState(true)
-
+  const [favorites, setFavorites] = useState(FAVORITES)
+  
+  function toggleFavorite(e, id) {
+    e.stopPropagation();
+    let aux = clone(favorites)
+    aux[id] ? delete aux[id] : aux[id] = id
+    setFavorites(aux)
+    localStorage.setItem('favorites', JSON.stringify(aux))
+  }
+  
   async function fetchHeroes() {
     try {
       const { data } = await api.get('characters', {
@@ -48,13 +69,21 @@ function Heroes(props) {
 
   useEffect(() => {
     fetchHeroes()
-  }, [])
+    console.log(favorites)
+  }, [favorites])
 
   return (
     <div className="flex flex-wrap space-between">
       <Loader visible={loading} />
       {!!props.heroes && props.heroes.map((hero, index) => 
-        <Hero name={hero.name} thumbnail={hero.thumbnail} id={hero.id} key={index} />
+        Object.keys(favorites).length && <Hero
+          id={hero.id}
+          name={hero.name}
+          thumbnail={hero.thumbnail}
+          favorite={!!favorites[hero.id]}
+          toggleFavorite={(e) => toggleFavorite(e, hero.id)}
+          key={index}
+        />
       )}
     </div>
   )
