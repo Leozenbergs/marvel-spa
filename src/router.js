@@ -6,18 +6,15 @@ import {
 
 import Base from './layouts/base'
 import Home from "./views/home/Index";
+import Character from "./views/character/Index";
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Base />}>
-          <Route index element={<Home />} />
-          {/* <Route path="teams" element={<Teams />}>
-            <Route path=":teamId" element={<Team />} />
-            <Route path="new" element={<NewTeamForm />} />
-            <Route index element={<LeagueStandings />} />
-          </Route> */}
+          <Route index path="characters" element={<Home />} />
+          <Route path="characters/:characterId" element={<Character />} />
         </Route>
       </Routes>
     </BrowserRouter>

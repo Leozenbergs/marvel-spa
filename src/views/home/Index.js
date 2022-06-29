@@ -1,18 +1,18 @@
-import { Container } from '../../components/container/Index'
+import { useState } from 'react';
 import Header from '../../components/header/Index'
-import Footer from '../../components/footer/Index'
 import Heroes from '../../components/heroes/Index'
+import HeroesHeader from '../../components/heroes/HeroesHeader'
 
 import './Home.css';
 
 function Home() {
+  const [heroes, setHeroes] = useState([])
+
   return (
     <div>
-      <Container className="home">
-        <Header/>
-        <Heroes />
-      </Container>
-      <Footer />
+      <Header setHeroes={setHeroes} />
+      <HeroesHeader total={heroes.length} />
+      <Heroes heroes={heroes} setHeroes={setHeroes} />
     </div>
   );
 }

@@ -1,9 +1,16 @@
+import React, { useEffect, useState } from 'react';
 import SearchInput from '../searchInput/Index'
 
 import '../../index.css'
 import './Header.css'
 
-export default function Header() {
+export default function Header(props) {
+  const [results, setResults] = useState([])
+
+  useEffect(() => {
+    props.setHeroes(results)
+  }, [results])
+
   return (
     <header className="text-center">
       <div className="flex justify-center align-center">
@@ -15,7 +22,7 @@ export default function Header() {
           Mergulhe no domínio deslumbrante de todos os personagens clássicos que você ama - e aqueles que você descobrirá em breve!
         </span>
       </div>
-      <SearchInput />
+      <SearchInput setResults={setResults} />
     </header>
   )
 }
