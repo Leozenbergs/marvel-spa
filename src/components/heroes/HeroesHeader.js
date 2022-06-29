@@ -18,7 +18,10 @@ function HeroesHeader(props) {
         <span className='flex align-center'>
           Ordenar por nome - A a Z
           <Switch setValue={(value) => setActive(value)} value={active} />
-          <span>Somente favoritos</span>
+          <span role="button" className='flex align-center pointer'>
+            <img src={'/icons/favorito_01.svg'} alt='Apenas favotitos' className='mx-1' />
+            Somente favoritos
+          </span>
         </span>
       </div>
     </div>
