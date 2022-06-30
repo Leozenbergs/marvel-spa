@@ -1,0 +1,66 @@
+@import url('../../index.css');
+
+.hero {
+  margin: 1.6rem 0px;
+  font-size: 12px;
+  color: #333
+}
+
+.hero-thumb {
+  min-height: 200px;
+  min-width: 200px;
+  background: #ccc;
+  border-bottom: 3px solid rgb(255, 0, 0);
+}
+
+.heroes-header {
+  color: #aaa;
+  margin-top: 60px;
+}
+
+.ordenate {
+  color: #f00;
+}
+
+.hero-icon {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.details {
+  width: 100%;
+  margin-top: 50px
+}
+
+.description {
+  width: 40%;
+  display: inline-block;
+  color: #666;
+}
+
+.hero-name {
+  color: #333
+}
+
+.details-thumb {
+  width: 60%;
+  display: inline-block;
+} 
+
+@media only screen and (max-width: 425px) {
+  .heroes-header {
+    justify-content: center;
+  }
+
+  .details {
+    display: inline-block;
+  }
+
+  .heroes {
+    justify-content: center;
+  }
+
+  .description, .details-thumb {
+    width: 100%;
+  }
+}
