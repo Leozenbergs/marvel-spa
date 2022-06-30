@@ -28,7 +28,7 @@ function Character() {
   }, [])
 
 
-  return (
+  return !!hero && (
     <div>
       <InlineHeader setHero={(hero) => setHero(hero)} />
       <HeroDetails hero={hero} />

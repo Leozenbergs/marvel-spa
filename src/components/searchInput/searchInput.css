@@ -6,6 +6,10 @@
   background: #fdecec;
   margin-left: -35px;
 }
+
+.char .searchInput {
+  background: #fcfefc;
+}
 .icon {
   position: relative;
   padding-left: 25px;

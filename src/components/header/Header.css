@@ -11,3 +11,13 @@ span.small {
   color: rgb(117, 117, 117);
   text-transform: none;
 }
+
+.inline-header {
+  padding-top: 25px
+}
+
+@media only screen and (max-width: 425px) {
+  .mini-logo {
+    margin-bottom: 15px;
+  }
+}

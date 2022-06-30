@@ -12,12 +12,12 @@ function InlineHeader(props) {
   }, [results])
 
   return (
-    <header className="text-center">
-      <div className="flex justify-center align-center">
-        <img src={"../icons/logo_menor.svg"} alt="logo"/>
+    <div className="text-center inline-header">
+      <div className="flex justify-center align-center flex-wrap">
+        <img src={"../icons/logo_menor.svg"} alt="logo" className='mini-logo'/>
         <SearchInput setResults={(value) => setResults(value)} icon="../icons/ic_busca_menor.svg" />
       </div>
-    </header>
+    </div>
   )
 }
 

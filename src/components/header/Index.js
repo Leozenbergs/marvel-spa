@@ -12,7 +12,7 @@ export default function Header(props) {
   }, [results])
 
   return (
-    <header className="text-center">
+    <div className="text-center">
       <div className="flex justify-center align-center">
         <img src={"icons/logo.svg"} alt="logo"/>
       </div>
@@ -23,6 +23,6 @@ export default function Header(props) {
         </span>
       </div>
       <SearchInput setResults={(value) => setResults(value)} icon="icons/ic_busca_menor.svg" />
-    </header>
+    </div>
   )
 }
