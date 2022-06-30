@@ -12,7 +12,7 @@ export default function Header(props) {
   }, [results])
 
   return (
-    <header className="text-center">
+    <div className="text-center">
       <div className="flex justify-center align-center">
         <img src={"icons/logo.svg"} alt="logo"/>
       </div>
@@ -22,7 +22,7 @@ export default function Header(props) {
           Mergulhe no domínio deslumbrante de todos os personagens clássicos que você ama - e aqueles que você descobrirá em breve!
         </span>
       </div>
-      <SearchInput setResults={(value) => setResults(value)} />
-    </header>
+      <SearchInput setResults={(value) => setResults(value)} icon="icons/ic_busca_menor.svg" />
+    </div>
   )
 }

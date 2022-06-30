@@ -21,7 +21,7 @@ function Hero(props) {
   return (
     <div className="hero pointer" onClick={() => navigate(`${props.id}`)}>
       <img
-        src={`${props.thumbnail.path}/standard_xlarge.jpg`}
+        src={`${props.thumbnail.path}/standard_xlarge.${props.thumbnail.extension}`}
         alt={props.name}
         className="hero-thumb"
         />
@@ -54,7 +54,7 @@ function Heroes(props) {
   }, [favorites])
 
   return (
-    <div className="flex flex-wrap space-between">
+    <div className="flex flex-wrap space-between heroes">
       <Loader visible={props.loading} />
       {!!props.heroes && props.heroes.map((hero, index) => 
         Object.keys(favorites).length && <Hero

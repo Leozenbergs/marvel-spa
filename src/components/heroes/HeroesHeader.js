@@ -13,10 +13,11 @@ function HeroesHeader(props) {
   }, [active])
 
   return (
-    <div className="flex space-between align-center my-1 heroes-header">
+    <div className="flex space-between align-center my-1 heroes-header flex-wrap">
       <span>Encontrados {props.total} herói(s)</span>
       <div className="ordenate">
-        <span className='flex align-center'>
+        <span className='flex justify-center align-center flex-wrap'>
+          <img src={'icons/ic_heroi.svg'} alt='heroi' className='hero-icon' />
           Ordenar por nome - A a Z
           <Switch setValue={(value) => setActive(value)} value={active} />
           <span role="button" className='flex align-center pointer' onClick={() => props.toggleOnlyFavorites()}>

@@ -1,5 +1,7 @@
-import './searchInput.css'
+import { useLocation, useParams } from "react-router-dom";
 import api from '../../services/api'
+
+import './searchInput.css'
 
 const HEROES_LIMIT = 20
 
@@ -24,10 +26,13 @@ async function onEnter(e, props) {
 }
 
 export default function SearchInput(props) {
+  let { pathname } = useLocation()
+  const { characterId } = useParams()
+
   return (
-    <div>
+    <div className={`${pathname === '/characters/' + characterId ? 'char': ''}`}>
       <span className="icon">
-        <img src={"icons/ic_busca_menor.svg"} alt="Search" />
+        <img src={props.icon} alt="Search" />
       </span>
       <input className='searchInput' name='searchInput' placeholder='Procure por heróis' onKeyPress={(event) => onEnter(event, props)} />
     </div>
