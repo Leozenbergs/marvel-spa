@@ -6,9 +6,7 @@ import React, { useState, useEffect } from 'react'
 import Loader from '../loader/Index'
 
 import './heroes.css'
-import api from '../../services/api'
 
-const HEROES_LIMIT = 20
 const FAVORITES = JSON.parse(localStorage.getItem('favorites')) || {}
 
 function Hero(props) {
@@ -40,7 +38,6 @@ function Hero(props) {
 
 
 function Heroes(props) {
-  const [loading, setLoading] = useState(true)
   const [favorites, setFavorites] = useState(FAVORITES)
   
   function toggleFavorite(e, id) {
@@ -50,30 +47,15 @@ function Heroes(props) {
     setFavorites(aux)
     localStorage.setItem('favorites', JSON.stringify(aux))
   }
-  
-  async function fetchHeroes() {
-    try {
-      const { data } = await api.get('characters', {
-        params: {
-          limit: HEROES_LIMIT
-        }
-      })
-      props.setHeroes(data.data.results)
-      setLoading(false)
-    } catch (err) {
-      setLoading(false)
-      console.table(err)
-    }
-  }
+
 
   useEffect(() => {
-    fetchHeroes()
-    console.log(favorites)
+    props.fetchHeroes()
   }, [favorites])
 
   return (
     <div className="flex flex-wrap space-between">
-      <Loader visible={loading} />
+      <Loader visible={props.loading} />
       {!!props.heroes && props.heroes.map((hero, index) => 
         Object.keys(favorites).length && <Hero
           id={hero.id}

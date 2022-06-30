@@ -4,6 +4,7 @@ import Switch from '../switch/Index'
 
 import './heroes.css'
 
+
 function HeroesHeader(props) {
   const [active, setActive] = useState(false)
 
@@ -18,7 +19,7 @@ function HeroesHeader(props) {
         <span className='flex align-center'>
           Ordenar por nome - A a Z
           <Switch setValue={(value) => setActive(value)} value={active} />
-          <span role="button" className='flex align-center pointer'>
+          <span role="button" className='flex align-center pointer' onClick={() => props.toggleOnlyFavorites()}>
             <img src={'/icons/favorito_01.svg'} alt='Apenas favotitos' className='mx-1' />
             Somente favoritos
           </span>
