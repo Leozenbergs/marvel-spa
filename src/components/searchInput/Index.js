@@ -27,7 +27,7 @@ export default function SearchInput(props) {
   return (
     <div>
       <span className="icon">
-        <img src={"icons/ic_busca_menor.svg"} alt="Search" />
+        <img src={props.icon} alt="Search" />
       </span>
       <input className='searchInput' name='searchInput' placeholder='Procure por heróis' onKeyPress={(event) => onEnter(event, props)} />
     </div>

@@ -22,7 +22,7 @@ export default function Header(props) {
           Mergulhe no domínio deslumbrante de todos os personagens clássicos que você ama - e aqueles que você descobrirá em breve!
         </span>
       </div>
-      <SearchInput setResults={(value) => setResults(value)} />
+      <SearchInput setResults={(value) => setResults(value)} icon="icons/ic_busca_menor.svg" />
     </header>
   )
 }

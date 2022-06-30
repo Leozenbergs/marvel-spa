@@ -1,11 +1,10 @@
 .searchInput {
   padding: 15px 18px 15px 50px;
   border-radius: 20px;
-  width: 45vw;
+  width: 41vw;
   border: none;
   background: #fdecec;
   margin-left: -35px;
-  margin-bottom: 60px;
 }
 .icon {
   position: relative;

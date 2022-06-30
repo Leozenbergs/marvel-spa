@@ -1,21 +1,25 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
+import InlineHeader from '../../components/header/InlineHeader'
+import HeroDetails from '../../components/heroes/HeroDetails'
+import LastReleases from '../../components/lastReleases/Index'
 import api from '../../services/api'
+
 import './Character.css'
 
 
 function Character() {
-  const [characterDetail, setCharacterDetail] = useState(null)
+  const [hero, setHero] = useState(null)
   let { characterId } = useParams();
   
 
   async function fetchCharacter() {
     try {
       const { data } = await api.get(`characters/${characterId}`)
-      setCharacterDetail(data.data.results[0])
+      setHero(data.data.results[0])
     } catch (err) {
-      alert(err)
+      console.log(err)
     }
   }
   
@@ -25,7 +29,11 @@ function Character() {
 
 
   return (
-    !!characterDetail && <h1>teste {characterDetail.name}</h1>
+    <div>
+      <InlineHeader setHero={(hero) => setHero(hero)} />
+      <HeroDetails hero={hero} />
+      <LastReleases />
+    </div>
   )
 }
 
