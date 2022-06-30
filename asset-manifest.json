@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/marvel-spa/static/css/main.47af4c88.css",
+    "main.js": "/marvel-spa/static/js/main.d33c617b.js",
+    "static/js/787.35a499f8.chunk.js": "/marvel-spa/static/js/787.35a499f8.chunk.js",
+    "index.html": "/marvel-spa/index.html",
+    "main.47af4c88.css.map": "/marvel-spa/static/css/main.47af4c88.css.map",
+    "main.d33c617b.js.map": "/marvel-spa/static/js/main.d33c617b.js.map",
+    "787.35a499f8.chunk.js.map": "/marvel-spa/static/js/787.35a499f8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47af4c88.css",
+    "static/js/main.d33c617b.js"
+  ]
+}
