@@ -30,7 +30,7 @@ export default function SearchInput(props) {
   const { characterId } = useParams()
 
   return (
-    <div className={`${pathname === '/characters/' + characterId ? 'char': ''}`}>
+    <div className={`${pathname === '/marcel-spa/characters/' + characterId ? 'char': ''}`}>
       <span className="icon">
         <img src={props.icon} alt="Search" />
       </span>

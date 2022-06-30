@@ -13,11 +13,11 @@ export default function Base() {
   const { characterId } = useParams()
 
   useEffect(() => {
-    if(pathname === '/') navigate('characters')
+    if(pathname === '/marvel-spa/') navigate('characters')
   }, [])
 
   return (
-    <div className={pathname === '/characters/' + characterId ? 'character': ''}>
+    <div className={pathname === '/marvel-spa/characters/' + characterId ? 'character': ''}>
       <Container className='layout'>
         <Outlet />
       </Container>

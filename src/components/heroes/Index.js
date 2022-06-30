@@ -57,7 +57,7 @@ function Heroes(props) {
     <div className="flex flex-wrap space-between heroes">
       <Loader visible={props.loading} />
       {!!props.heroes && props.heroes.map((hero, index) => 
-        Object.keys(favorites).length && <Hero
+        <Hero
           id={hero.id}
           name={hero.name}
           thumbnail={hero.thumbnail}

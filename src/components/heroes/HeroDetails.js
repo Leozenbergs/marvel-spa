@@ -6,6 +6,7 @@ import Rating from '../rating/Index'
 import LastRelease from '../lastReleases/LastRelease'
 
 import './heroes.css'
+import { useEffect } from 'react'
 
 const FAVORITES = JSON.parse(localStorage.getItem('favorites')) || {}
 
@@ -20,14 +21,18 @@ function HeroDetails(props) {
     return Object.keys(FAVORITES).includes(characterId)
   }
 
+  useEffect(() => {
+    if((!props.hero?.id) || props.hero?.id === parseInt(characterId)) props.onFetch()
+  }, [])
+
   return !!props.hero && (
     <div className='flex details'>
       <div className='description'>
         <div className='flex space-between flex-wrap align-center'>
-          <h3 className='hero-name'>{props.hero.name}</h3>
+          <h3 className='hero-name'>{props.hero?.name}</h3>
           <img src={isFavorited() ? '../icons/favorito_03.svg' : '../icons/favorito_02.svg'} />
         </div>
-        {props.hero.description}
+        {props.hero?.description}
         <div className="flex space-between flex-wrap align-center" style={{ marginTop: '50px'}}>
           <Hqs total={availableComics} />
           <Movies total={totalMovies} />
@@ -37,8 +42,8 @@ function HeroDetails(props) {
       </div>
       <div className='details-thumb text-right'>
         <img
-          src={`${props.hero.thumbnail?.path}/portrait_uncanny.${props.hero.thumbnail?.extension}`}
-          alt={props.hero.name}
+          src={`${props.hero?.thumbnail?.path}/portrait_uncanny.${props.hero?.thumbnail?.extension}`}
+          alt={props.hero?.name}
         />
       </div>
     </div>

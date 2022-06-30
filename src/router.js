@@ -12,8 +12,8 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Base />}>
-          <Route index path="characters" element={<Home />} />
+        <Route path='/marvel-spa/' element={<Base />}>
+          <Route path='characters' element={<Home />} />
           <Route path="characters/:characterId" element={<Character />} />
         </Route>
       </Routes>

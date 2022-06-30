@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import SearchInput from '../searchInput/Index';
 
@@ -6,9 +7,11 @@ import './Header.css'
 
 function InlineHeader(props) {
   const [results, setResults] = useState([])
+  let navigate = useNavigate();
 
   useEffect(() => {
-    props.setHero(results)
+    if(!!results[0]?.id) navigate(`/marvel-spa/characters/${results[0]?.id}`)
+    props.setHero(results[0])
   }, [results])
 
   return (

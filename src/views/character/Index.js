@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import InlineHeader from '../../components/header/InlineHeader'
@@ -22,16 +22,12 @@ function Character() {
       console.log(err)
     }
   }
-  
-  useEffect(() => {
-    fetchCharacter()
-  }, [])
 
 
-  return !!hero && (
+  return (
     <div>
       <InlineHeader setHero={(hero) => setHero(hero)} />
-      <HeroDetails hero={hero} />
+      <HeroDetails hero={hero} onFetch={() => fetchCharacter()} key={hero?.id} />
       <LastReleases />
     </div>
   )

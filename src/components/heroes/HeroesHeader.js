@@ -21,7 +21,7 @@ function HeroesHeader(props) {
           Ordenar por nome - A a Z
           <Switch setValue={(value) => setActive(value)} value={active} />
           <span role="button" className='flex align-center pointer' onClick={() => props.toggleOnlyFavorites()}>
-            <img src={'/icons/favorito_01.svg'} alt='Apenas favotitos' className='mx-1' />
+            <img src={'icons/favorito_01.svg'} alt='Apenas favotitos' className='mx-1' />
             Somente favoritos
           </span>
         </span>
